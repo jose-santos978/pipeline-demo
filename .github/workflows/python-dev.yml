@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout código
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Configurar Python
         uses: actions/setup-python@v4
@@ -29,7 +29,7 @@ jobs:
 
     steps:
       - name: Checkout código
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Configurar Python
         uses: actions/setup-python@v4
@@ -56,15 +56,16 @@ jobs:
         run: zip -r pipeline-demo.zip
 
       - name: Publicar artefato
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: codigo-buildado
           path: pipeline-demo.zip
 
       - name: Baixar artefato
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: codigo-buildado
 
       - name: Extrair artefato
         run: unzip pipeline-demo.zip
+
