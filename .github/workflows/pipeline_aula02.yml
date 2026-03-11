@@ -49,23 +49,22 @@ jobs:
     needs: build
 
     steps:
-       - name: Simular deploy
-         run: echo "Deploy realizado com sucesso" 
+      - name: Simular deploy
+        run: echo "Deploy realizado com sucesso" 
 
-    - name: Gerador artefato.ZIP
+      - name: Gerador artefato.ZIP
         run: zip -r pipeline-demo.zip
 
       - name: Publicar artefato
         uses: actions/upload-artifact@v3
         with:
-            name: codigo-buildado
-            path: pipeline-demo.zip
+          name: codigo-buildado
+          path: pipeline-demo.zip
 
-    test:
-      -name: Baixar artefato
-      uses: actions/download-artifact@v3
-      with:
-        name: codigo-buildado
+      - name: Baixar artefato
+        uses: actions/download-artifact@v3
+        with:
+          name: codigo-buildado
 
-      -name: Extrair artefato
-      run: unzip pipeline-demo.zip
+      - name: Extrair artefato
+        run: unzip pipeline-demo.zip
